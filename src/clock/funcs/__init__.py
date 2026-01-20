@@ -1,3 +1,3 @@
-from . import check, clear, clockin, clockout, helloworld, printrow
+from . import check, clear, clockin, clockout, helloworld, printrow, setrow
 
-__all__ = ["helloworld", "clockin", "clockout", "printrow", "check", "clear"]
+__all__ = ["helloworld", "clockin", "clockout", "printrow", "check", "clear", "setrow"]

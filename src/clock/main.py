@@ -20,7 +20,7 @@ def main():
         help="Number of minutes to clock in (default: 0)"
     )
     clockin_parser.add_argument(
-        "-h", "--hours",
+        "-o", "--hours",
         type=int,
         default=0,
         help="Number of hours to clock out (default: 0)"
@@ -42,7 +42,7 @@ def main():
         help="Number of minutes to clock out (default: 0)"
     )
     clockout_parser.add_argument(
-        "-h", "--hours",
+        "-o", "--hours",
         type=int,
         default=0,
         help="Number of hours to clock out (default: 0)"
@@ -78,6 +78,23 @@ def main():
         help="Shift in number of days (default: 0)"
     )
     clear_parser.set_defaults(func=funcs.clear.main)
+
+    # set row command
+    setrow_parser = subparsers.add_parser("set", help="Set row work hours")
+    setrow_parser.add_argument(
+        "-d", "--day",
+        type=int,
+    )
+    setrow_parser.add_argument(
+        "-m", "--month",
+        type=int,
+    )
+    setrow_parser.add_argument(
+    "-t", "--times",
+    nargs="+",
+    help="List of time arguments: TIME1_START TIME1_END TIME2_START TIME2_END ..."
+    )
+    setrow_parser.set_defaults(func=funcs.setrow.main)
 
     args = parser.parse_args()
     args.func(args)
