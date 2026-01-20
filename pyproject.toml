@@ -1,0 +1,11 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "desyclock"
+version = "0.0.1"
+dependencies = ["rich==14.2.0"]
+
+[project.scripts]
+clock = "clock.main:main"
