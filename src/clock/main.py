@@ -96,6 +96,52 @@ def main():
     )
     setrow_parser.set_defaults(func=funcs.setrow.main)
 
+    # set row command
+    random_parser = subparsers.add_parser("random", help="Fill work hours")
+    random_parser.add_argument(
+        "--h0",
+        type=int,
+        default=9,
+        help="Mean arrival hour (default: 9)"
+    )
+    random_parser.add_argument(
+        "--m0",
+        type=int,
+        default=30,
+        help="Mean arrival minute (default: 30)"
+    )
+    random_parser.add_argument(
+        "--s0",
+        type=int,
+        default=10,
+        help="Arrival sigma"
+    )
+    random_parser.add_argument(
+        "--sl",
+        type=int,
+        default=10,
+        help="Lunch sigma"
+    )
+    random_parser.add_argument(
+        "--h1",
+        type=int,
+        default=18,
+        help="Mean leave hour (default: 18)"
+    )
+    random_parser.add_argument(
+        "--m1",
+        type=int,
+        default=30,
+        help="Mean leave minute (default: 30)"
+    )
+    random_parser.add_argument(
+        "--s1",
+        type=int,
+        default=20,
+        help="leave sigma"
+    )
+    random_parser.set_defaults(func=funcs.random.main)
+
     args = parser.parse_args()
     args.func(args)
     

@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, time
 
 MONTHS = [
     "January",
@@ -35,3 +35,11 @@ def is_weekend(date_target):
 
 def is_holiday(comment):
     return (comment is not None) and (comment not in MONTHS)
+
+def time_to_minutes(t: time) -> int:
+    return t.hour * 60 + t.minute
+
+
+def minutes_to_time(m: int) -> time:
+    m = max(0, min(23 * 60 + 59, int(m)))
+    return time(m // 60, m % 60)
