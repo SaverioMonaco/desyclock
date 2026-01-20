@@ -1,3 +1,7 @@
+"""
+Check sanity of the rows from the start of the year to today
+"""
+
 from datetime import date
 
 from rich.console import Console
@@ -24,3 +28,4 @@ def main(args):
             comment = s.sheet.cell(row=row, column=s.COMMENT_COLUMN).value
             if work_hours and (is_holiday(comment) or is_weekend(date_target)):
                 warn(f"({date_target.strftime('%d/%m/%Y')}) You worked on a holiday or a weekend")
+                # I will allow it but you really shouldn't, go have fun

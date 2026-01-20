@@ -1,3 +1,6 @@
+"""
+Clear the work hours of a day in case you did an oopsie
+"""
 from datetime import date, timedelta
 
 from ..utils.print import success
@@ -10,6 +13,7 @@ def main(args):
     row = s.date_to_row(date_target)
     
     for work_column in s.WORK_COLUMNS:
+        # Set them to none
         s.sheet.cell(row = row, column = work_column["start"]).value = None
         s.sheet.cell(row = row, column = work_column["end"]).value = None    
     s.save()

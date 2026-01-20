@@ -15,15 +15,18 @@ def main(args):
 
     total_time, work_hours = s.get_work_hours(row)
 
+    # Bruh, don't
     if is_weekend(date_target):
         warn(f"{date_target} is a weekend")
     if is_holiday(comment):
         warn(f"{date_target} is a holiday")
 
+    # If you have not clocked in yet that day
     if not work_hours:
         error("Clock in first")
         return
     else:
+        # Only check is to see if the last clock-in time is earlier that the clock out
         if not work_hours[-1]["end"] and datetime.combine(date.today(), work_hours[-1]["start"]) <= datetime.combine(date.today(), time):
             s.sheet.cell(row = row, column = s.WORK_COLUMNS[len(work_hours)-1]["end"]).value = time
             s.save()

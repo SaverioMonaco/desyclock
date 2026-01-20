@@ -1,3 +1,6 @@
+"""
+Print a row
+"""
 from datetime import date, timedelta
 
 from ..utils.sheet import Sheet
